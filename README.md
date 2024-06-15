@@ -1,24 +1,33 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+##Author's technical configuration:
 
-Things you may want to cover:
+* Ruby 3.0.0
 
-* Ruby version
+* Rails 7.1.3.2
 
-* System dependencies
+* Mac OS Montery 12.7.4
 
-* Configuration
+##Terminal commands to run application:
 
-* Database creation
+* `rails s for run local server`
 
-* Database initialization
+* `rails c to open app console`
 
-* How to run the test suite
+##Objects for application realization:
 
-* Services (job queues, cache servers, search engines, etc.)
+* Admin - app's god
 
-* Deployment instructions
+* User - person, who pass the tests
+
+* Test - set of questions
+
+* Question - one part of test
+
+* Answer - one option to choose
+
+* Result - user's final
+
+* Category - test's type
 
 * ...
