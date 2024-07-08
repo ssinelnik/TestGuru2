@@ -20,4 +20,7 @@ class Test < ApplicationRecord
                                     .order(id: :desc)
                                   }
 
+  def self.show_tests_by_category_array(category)
+    show_tests_by_category(category).pluck(:title)
+  end
 end
