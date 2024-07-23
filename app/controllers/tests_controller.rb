@@ -1,5 +1,6 @@
 class TestsController < ApplicationController
   def index
-    render json: { tests: Test.all }
+    @tests = Test.pluck(:id, :title).sort
+    render plain: @tests
   end
 end
