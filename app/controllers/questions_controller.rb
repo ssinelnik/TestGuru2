@@ -10,6 +10,7 @@ class QuestionsController < ApplicationController
   end
 
   def create
+    #test
     @question = @test.questions.new(question_params)
     if @question.save
       redirect_to admin_question_path(@question)
