@@ -1,9 +1,11 @@
+# frozen_string_literal: true
+
 module QuestionsHelper
   def question_header(question)
     if question.new_record?
-      t('shared.message.new_question')
+      'Create new question'
     else
-      t('shared.message.edit_question')
+      'Edit question'
     end
   end
 end
