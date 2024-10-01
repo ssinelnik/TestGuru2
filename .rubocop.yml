@@ -1,13 +1,13 @@
 require:
-  - rubocop-performance
-  - rubocop-rails
+	- rubocop-performance
+	- rubocop-rails
 
 AllCops:
-  NewCops: enable
-  TargetRubyVersion: 2.7
+	NewCops: enable
+	TargetRubyVersion: 2.7
 
 Style/Documentation:
-  Enabled: false
+	Enabled: false
 
 Rails/FilePath:
-  EnforcedStyle: arguments
+	EnforcedStyle: arguments
