@@ -1,24 +1,27 @@
-class QuestionsController < ApplicationController
+# frozen_string_literal: true
 
+class QuestionsController < ApplicationController
   before_action :set_test, only: %[create new]
   before_action :set_question, only: %[show update destroy edit]
 
+  rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_question_not_found
+
   def show; end
+
+  def edit; end
 
   def new
     @question = Question.new
   end
 
   def create
-    @question = @test.questions.new(question_params)
+    @question = @test.questions.build(question_params)
     if @question.save
       redirect_to test_path(@question.test)
     else
       render :new
     end
   end
-
-  def edit; end
 
   def update
     if @question.update(question_params)

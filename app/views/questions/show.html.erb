@@ -1,3 +1,5 @@
+<h1><%= @question.test.title %></h1>
+
 <p>
   <strong>Id's:</strong>
   <%= @question.id %>
@@ -8,4 +10,12 @@
   <%= @question.body %>
 </p>
 
+<%= link_to "Edit", edit_question_path %>
 <%= link_to 'Back', tests_path %>
+
+
+<h2> Answers </h2>
+
+<%= link_to "New Answer", new_question_answer_path(@question) %>
+
+<ol><%= render @question.answers  %></ol>
