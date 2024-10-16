@@ -3,6 +3,12 @@
 Rails.application.routes.draw do
   root to: 'tests#index'
 
+  get  :signup, to: 'users#new'
+  get  :login,  to: 'sessions#new'
+
+  resources :users, only: %i[create]
+  resource :sessions, only: %i[create destroy]
+
   resources :tests do
     resources :questions, shallow: true, except: [:index] do
       resources :answers, shallow: true, except: [:index]
