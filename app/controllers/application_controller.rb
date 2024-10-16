@@ -7,12 +7,10 @@ class ApplicationController < ActionController::Base
 
   def authenticate_user!
     unless current_user
-      flash[:info] = 'Authenticate please'
+      flash[:alert] = 'Authenticate please'
       cookies[:user_requested_path] = request.fullpath
       redirect_to login_path
     end
-
-    cookies[:email] = current_user&.email
   end
 
   def current_user

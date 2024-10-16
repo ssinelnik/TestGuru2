@@ -3,8 +3,6 @@
 require 'digest/sha1'
 
 class User < ApplicationRecord
-  VALID_EMAIL_REGEX = URI::MailTo::EMAIL_REGEXP
-
   has_many :test_passages,
            dependent: :destroy
 
@@ -21,7 +19,7 @@ class User < ApplicationRecord
 
   validates :name, presence: true, length: { minimum: 3, maximum: 50 }
   validates :email, presence: true,
-                    format: { with: VALID_EMAIL_REGEX },
+                    format: { with: URI::MailTo::EMAIL_REGEXP },
                     uniqueness: { case_sensitive: false }
   validates :password, presence: true, if: proc { |user| user.password_digest.blank? }
   validates :password, confirmation: true
