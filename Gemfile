@@ -29,6 +29,7 @@ gem "stimulus-rails"
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 gem "jbuilder"
 
+# For user authentication
 gem 'devise', '~> 4.0'
 
 # Use Redis adapter to run Action Cable in production
@@ -69,6 +70,9 @@ group :development do
 
   # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
   # gem "spring"
+
+  # For devise confirmable email
+  gem 'letter_opener'
 end
 
 group :test do
