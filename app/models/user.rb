@@ -1,8 +1,16 @@
 # frozen_string_literal: true
 
-require 'digest/sha1'
+# require 'digest/sha1'
 
 class User < ApplicationRecord
+  devise :database_authenticatable,
+         :registerable,
+         :recoverable,
+         :rememberable,
+         :trackable,
+         :validatable,
+         :confirmable
+
   has_many :test_passages,
            dependent: :destroy
 
@@ -24,7 +32,7 @@ class User < ApplicationRecord
   validates :password, presence: true, if: proc { |user| user.password_digest.blank? }
   validates :password, confirmation: true
 
-  has_secure_password
+  # has_secure_password
 
   def show_tests_by_level(level)
     tests.where(level: level)
