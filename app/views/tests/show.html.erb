@@ -1,3 +1,5 @@
+<% provide(:title, @test.title) %>
+
 <p>
   <strong>Title:</strong>
   <%= @test.title %>
@@ -20,4 +22,5 @@
   </tr>
   <%= render @questions %>
 </table><br>
-<%= link_to 'New question', new_test_question_path(@test) %>
+
+<%= link_to 'New question', new_test_question_path(@test) %>s<br>
