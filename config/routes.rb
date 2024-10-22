@@ -7,9 +7,7 @@ Rails.application.routes.draw do
                      controllers: { sessions: 'sessions' }
 
   resources :tests, only: :index do
-    member do
-      post :start
-    end
+    post :start, on: :member
   end
 
   resources :test_passages, only: %i[show update] do
