@@ -1,8 +1,14 @@
 # frozen_string_literal: true
 
-require 'digest/sha1'
-
 class User < ApplicationRecord
+  devise :database_authenticatable,
+         :registerable,
+         :recoverable,
+         :rememberable,
+         :trackable,
+         :validatable,
+         :confirmable
+
   has_many :test_passages,
            dependent: :destroy
 
@@ -17,14 +23,9 @@ class User < ApplicationRecord
 
   before_save :email_downcase
 
-  validates :name, presence: true, length: { minimum: 3, maximum: 50 }
   validates :email, presence: true,
                     format: { with: URI::MailTo::EMAIL_REGEXP },
                     uniqueness: { case_sensitive: false }
-  validates :password, presence: true, if: proc { |user| user.password_digest.blank? }
-  validates :password, confirmation: true
-
-  has_secure_password
 
   def show_tests_by_level(level)
     tests.where(level: level)
