@@ -20,6 +20,7 @@ class Admin::TestsController < Admin::BaseController
   def create
     @test = current_user.author_tests.new(test_params)
     if @test.save
+      flash[:notice] = t('.success')
       redirect_to admin_test_path(@test)
     else
       render :new
@@ -28,6 +29,7 @@ class Admin::TestsController < Admin::BaseController
 
   def update
     if @test.update(test_params)
+      flash[:notice] = t('.update_success')
       redirect_to admin_test_path(@test)
     else
       render :edit

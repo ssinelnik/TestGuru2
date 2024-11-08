@@ -40,6 +40,9 @@ gem "jbuilder"
 # For user authentication
 gem 'devise', '~> 4.0'
 
+# LOCALIZATION
+gem 'rails-i18n', '~> 7.0.0'
+
 # Use Redis adapter to run Action Cable in production
 # gem "redis", ">= 4.0.1"
 
