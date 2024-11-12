@@ -37,11 +37,15 @@ gem 'turbolinks', '~> 5'
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 gem "jbuilder"
 
-# For user authentication
+# AUTHENTICATION
 gem 'devise', '~> 4.0'
 
 # LOCALIZATION
 gem 'rails-i18n', '~> 7.0.0'
+
+# UI
+gem 'jquery-rails'
+gem 'bootstrap', '~> 5.3.3'
 
 # Use Redis adapter to run Action Cable in production
 # gem "redis", ">= 4.0.1"
