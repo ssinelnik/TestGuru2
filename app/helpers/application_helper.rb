@@ -1,12 +1,7 @@
 # frozen_string_literal: true
 
 module ApplicationHelper
-  MESSAGE = { 'notice': 'alert alert-info',
-              'success': 'alert alert-success',
-              'error': 'alert alert-danger', 
-              'alert': 'alert alert-warning' }
-
-  def current_year
+def current_year
     Time.current.year
   end
 
@@ -23,7 +18,13 @@ module ApplicationHelper
     end
   end
 
-  def flash_class(level)
-    MESSAGE[level.to_sym]
+  CSS_CLASS_TYPES = {
+    notice:  'info',
+    alert:   'warning',
+    error:   'danger'
+  }
+
+  def class_for_flash_message(key)
+    CSS_CLASS_TYPES.fetch(key.to_sym, key)
   end
 end
