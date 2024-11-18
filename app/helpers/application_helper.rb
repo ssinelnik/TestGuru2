@@ -22,7 +22,7 @@ def current_year
     notice:  'info',
     alert:   'warning',
     error:   'danger'
-  }
+  }.freeze
 
   def class_for_flash_message(key)
     CSS_CLASS_TYPES.fetch(key.to_sym, key)

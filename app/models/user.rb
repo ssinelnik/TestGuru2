@@ -21,6 +21,9 @@ class User < ApplicationRecord
            dependent: :destroy,
            inverse_of: :author
 
+  has_many :gists, 
+           dependent: :destroy
+
   before_save :email_downcase
 
   validates :email, presence: true,
@@ -36,7 +39,7 @@ class User < ApplicationRecord
   end
 
   def admin?
-    self.is_a?(Admin)
+    is_a?(Admin)
   end
 
   private
