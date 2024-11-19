@@ -45,12 +45,8 @@ gem 'rails-i18n', '~> 7.0.0'
 
 # UI
 gem 'jquery-rails'
+
 gem 'bootstrap', '~> 5.3.3'
-
-# NETWORKING
-gem 'faraday'
-
-gem 'faraday-retry', '~> 2.2'
 
 gem 'octokit', '~> 9.2'
 
