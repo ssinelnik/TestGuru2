@@ -45,7 +45,10 @@ gem 'rails-i18n', '~> 7.0.0'
 
 # UI
 gem 'jquery-rails'
+
 gem 'bootstrap', '~> 5.3.3'
+
+gem 'octokit', '~> 9.2'
 
 # Use Redis adapter to run Action Cable in production
 # gem "redis", ">= 4.0.1"
@@ -74,6 +77,8 @@ group :development, :test do
   gem 'rubocop'
   gem 'rubocop-performance'
   gem 'rubocop-rails'
+
+  gem 'dotenv-rails'
 end
 
 group :development do

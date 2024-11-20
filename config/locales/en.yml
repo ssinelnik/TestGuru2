@@ -89,6 +89,13 @@ en:
       edit:
         edit: "Edit Answer"
 
+  gists:
+    index:
+      header: "Gists"
+      question: "Question"
+      gist_url: "Hash Gist"
+      user: "User email"
+
   test_passages:
     result:
       header: "The %{title} test was Completed!"
@@ -98,6 +105,11 @@ en:
       header: "Passing the %{title} test"
       total_questions: "All questions: %{count}"
       current_question: "Current question has a number %{number}"
+
+  gists:
+    create:
+      success: "Gist was successfully created!"
+      failure: "An error occured while saving gist"
 
   tests_mauiler:
     completed_test:
