@@ -45,9 +45,10 @@ gem 'rails-i18n', '~> 7.0.0'
 
 # UI
 gem 'jquery-rails'
-
 gem 'bootstrap', '~> 5.3.3'
+gem 'octicons_helper'
 
+# API gists
 gem 'octokit', '~> 9.2'
 
 # Use Redis adapter to run Action Cable in production
