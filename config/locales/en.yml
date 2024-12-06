@@ -55,6 +55,8 @@ en:
         level: "Level"
         count: "Count"
         actions: "Actions"
+      form-inline:
+        submit: "OK"
       create:
         success: "The test was successfully created"
       update:
