@@ -26,9 +26,9 @@ class User < ApplicationRecord
 
   before_save :email_downcase
 
-  validates :email, presence: true,
-                    format: { with: URI::MailTo::EMAIL_REGEXP },
-                    uniqueness: { case_sensitive: false }
+  # validates :email, presence: true,
+  #                   format: { with: URI::MailTo::EMAIL_REGEXP },
+  #                   uniqueness: { case_sensitive: false }
 
   def show_tests_by_level(level)
     tests.where(level: level)

@@ -38,7 +38,7 @@ gem 'turbolinks', '~> 5'
 gem "jbuilder"
 
 # AUTHENTICATION
-gem 'devise', '~> 4.0'
+gem 'devise', '~> 4.8'
 
 # LOCALIZATION
 gem 'rails-i18n', '~> 7.0.0'

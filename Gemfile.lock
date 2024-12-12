@@ -370,7 +370,7 @@ DEPENDENCIES
   byebug
   capybara
   debug
-  devise (~> 4.0)
+  devise (~> 4.8)
   dotenv-rails
   font-awesome-sass
   importmap-rails
