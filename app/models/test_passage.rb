@@ -21,6 +21,10 @@ class TestPassage < ApplicationRecord
     result >= SUCCESSFUL_PASS
   end
 
+  def total_questions
+    test.questions.count
+  end
+
   def result
     correct_questions.to_f * 100 / test.questions.count
   end
@@ -30,7 +34,7 @@ class TestPassage < ApplicationRecord
   end
 
   def accept!(answer_ids)
-    self.correct_questions += 1 if correct?(answer_ids)
+    self.correct_questions += 1 if correct_answer?(answer_ids)
 
     self.current_question = next_question
     save!
@@ -42,12 +46,12 @@ class TestPassage < ApplicationRecord
     self.current_question = test.questions.first if test.present? 
   end
 
-  def correct?(answer_ids)
-    right_answers.ids.sort == answer_ids.to_a.map(&:to_i).sort
+  def correct_answer?(answer_ids)
+    correct_answers.ids.sort == answer_ids.to_a.map(&:to_i).sort
   end
 
-  def right_answers
-    current_question.answers.correct
+  def correct_answers
+    current_question.answers.correct_answer
   end
 
   def next_question
