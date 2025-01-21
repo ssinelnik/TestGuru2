@@ -43,6 +43,7 @@ class TestPassage < ApplicationRecord
   end
 
   def correct?(answer_ids)
+    return if self.current_question.answers.empty?
     right_answers.ids.sort == answer_ids.to_a.map(&:to_i).sort
   end
 
