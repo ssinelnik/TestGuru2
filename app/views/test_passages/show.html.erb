@@ -10,9 +10,9 @@
 
   <h3><%= t('.total_questions', count: @test_passage.test.questions.size) %></h3>
 
-  <h3><%= t('.current_question', number: @test_passage.current_question_number) %></h3><br>
+  <h3><%= t('.current_question', number: @test_passage.question_number) %></h3><br>
 
-  <%= content_tag :div, class: 'bar', data: { current_number: @test_passage.current_question_number,
+  <%= content_tag :div, class: 'bar', data: { current_number: @test_passage.question_number,
                                               total_questions: @test_passage.total_questions } do %>
     <%= content_tag :div, class: 'progress-bar' do %>
     <% end %>

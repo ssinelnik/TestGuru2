@@ -16,7 +16,7 @@ users = User.create!([
   { name: "Georgy", email: "georgy2001@mail.com" },
   { name: "Artem", email: "artem2005@mail.com" },
   { name: "Ekaterina", email: "ekaterina2000@mail.com" }
-  ])
+  ])аааа
 
 categories = Category.create!([
   { title: "Frontend" },

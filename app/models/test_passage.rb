@@ -17,6 +17,10 @@ class TestPassage < ApplicationRecord
     test.questions.index(current_question) + 1
   end
 
+  def total_questions
+    test.questions.count
+  end
+
   def successful?
     result >= SUCCESSFUL_PASS
   end
