@@ -48,6 +48,8 @@ gem 'dotenv-rails', '~> 3.1', '>= 3.1.7'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+
+  gem 'dotenv', '~> 3.1', '>= 3.1.7'
 end
 
 group :development do
@@ -68,8 +70,6 @@ group :development do
   gem 'rubocop', '~> 1.71'
   gem 'rubocop-performance', '~> 1.23', '>= 1.23.1'
   gem 'rubocop-rails', '~> 2.29', '>= 2.29.1'
-
-  gem 'dotenv', '~> 3.1', '>= 3.1.7'
 end
 
 group :test do
