@@ -10,8 +10,6 @@ gem 'rails', '~> 8.0', '>= 8.0.1'
 
 gem 'bundler', '~> 2.5', '>= 2.5.18'
 
-gem 'dotenv', '~> 3.1', '>= 3.1.7'
-
 # Use postgresql as the database for Active Record
 gem "pg", "~> 1.1"
 
@@ -70,6 +68,8 @@ group :development do
   gem 'rubocop', '~> 1.71'
   gem 'rubocop-performance', '~> 1.23', '>= 1.23.1'
   gem 'rubocop-rails', '~> 2.29', '>= 2.29.1'
+
+  gem 'dotenv', '~> 3.1', '>= 3.1.7'
 end
 
 group :test do
