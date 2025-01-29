@@ -46,10 +46,10 @@ gem 'octokit', '~> 9.2'
 gem 'bootsnap', '>= 1.18.4', require: false
 gem 'dotenv-rails', '~> 3.1', '>= 3.1.7'
 
+gem 'dotenv', groups: [:development, :test]
+
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
-
-  gem 'dotenv', '~> 3.1', '>= 3.1.7'
 end
 
 group :development do
