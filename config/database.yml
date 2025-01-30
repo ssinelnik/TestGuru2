@@ -4,6 +4,7 @@ Fdefault: &default
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   username: alexsiniy
   password: <%= ENV['1234'] %>
+  timeout: 5000
 
 development:
   <<: *default
@@ -16,5 +17,3 @@ test:
 production:
   <<: *default
   database: test_guru2_production
-  username: test_guru2
-  password: <%= ENV["TEST_GURU2_DATABASE_PASSWORD"] %>
