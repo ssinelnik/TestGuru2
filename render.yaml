@@ -1,1 +1,21 @@
+databases:
+  - name: test_guru2_production
+    databaseName: test_guru2_production
+    user: test_guru2_production
+    plan: free
 
+services:
+  - type: web
+    name: test_guru2_production
+    runtime: ruby
+    plan: free
+    buildCommand: "./bim/render-build.sh"
+    startCommand: "bundle exac rails server"
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: test_guru2_production
+          property connectionString
+      - key: RAILS_MASTER_KEY
+        sync: false-key: WEB_CONCURRENCY
+        value: 2
