@@ -17,5 +17,5 @@ services:
           name: test_guru2_production
           property: connectionString
       - key: RAILS_MASTER_KEY
-        sync: false-key: WEB_CONCURRENCY
+        sync:false- key: WEB_CONCURRENCY
         value: 2
