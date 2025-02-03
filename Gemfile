@@ -12,6 +12,8 @@ gem 'bundler', '~> 2.5', '>= 2.5.18'
 
 gem 'autoprefixer-rails', '~> 10.4', '>= 10.4.19.0'
 
+gem 'webpacker', '6.0.0.rc.6'
+
 # Use postgresql as the database for Active Record
 gem "pg", "~> 1.1"
 
