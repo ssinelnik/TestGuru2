@@ -10,6 +10,8 @@ gem 'rails', '~> 8.0', '>= 8.0.1'
 
 gem 'bundler', '~> 2.5', '>= 2.5.18'
 
+gem 'autoprefixer-rails', '~> 10.4', '>= 10.4.19.0'
+
 # Use postgresql as the database for Active Record
 gem "pg", "~> 1.1"
 

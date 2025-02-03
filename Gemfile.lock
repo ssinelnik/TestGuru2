@@ -355,6 +355,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  autoprefixer-rails (~> 10.4, >= 10.4.19.0)
   bootsnap (>= 1.18.4)
   bootstrap (~> 5.3, >= 5.3.3)
   bundler (~> 2.5, >= 2.5.18)
