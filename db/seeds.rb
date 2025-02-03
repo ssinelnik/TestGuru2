@@ -11,12 +11,12 @@
 return if User.exists? && Test.exists? && Category.exists?
 
 users = User.create!([
-  { name: "Alexander", email: "alexander1999@mail.com" },
-  { name: "Anna", email: "anna2003@mail.com" },
-  { name: "Georgy", email: "georgy2001@mail.com" },
-  { name: "Artem", email: "artem2005@mail.com" },
-  { name: "Ekaterina", email: "ekaterina2000@mail.com" }
-  ])аааа
+  { first_name: "Alexander", email: "alexander1999@mail.com" },
+  { first_name: "Anna", email: "anna2003@mail.com" },
+  { first_name: "Georgy", email: "georgy2001@mail.com" },
+  { first_name: "Artem", email: "artem2005@mail.com" },
+  { first_name: "Ekaterina", email: "ekaterina2000@mail.com" }
+  ])
 
 categories = Category.create!([
   { title: "Frontend" },
