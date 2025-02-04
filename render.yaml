@@ -9,7 +9,7 @@ services:
     name: test_guru2_production
     runtime: ruby
     plan: free
-    buildCommand: "./bim/render-build.sh"
+    buildCommand: "./bin/render-build.sh"
     startCommand: "bundle exac rails server"
     envVars:
       - key: DATABASE_URL
