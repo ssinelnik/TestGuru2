@@ -12,6 +12,8 @@ gem 'bundler', '~> 2.5', '>= 2.5.18'
 
 gem 'autoprefixer-rails', '~> 10.4', '>= 10.4.19.0'
 
+gem 'npm-rails', '~> 0.2.1'
+
 # Use postgresql as the database for Active Record
 gem "pg", "~> 1.1"
 
@@ -22,8 +24,8 @@ gem 'puma', '~> 6.5'
 gem 'sass-rails', '~> 6.0'
 
 # Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker
-# gem 'webpacker', '6.0.0.rc.6'
-gem 'webpacker', '~> 5.4', '>= 5.4.4'
+gem 'webpacker', '6.0.0.rc.6'
+# gem 'webpacker', '~> 5.4', '>= 5.4.4'
 
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
 gem 'turbolinks', '~> 5.2', '>= 5.2.1'
