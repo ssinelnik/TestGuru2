@@ -1,19 +1,24 @@
-Fdefault: &default
+default: &default
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   adapter: postgresql
   encoding: unicode
-  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  username: alexsiniy
-  password: <%= ENV['1234'] %>
   timeout: 5000
 
 development:
   <<: *default
   database: test_guru2_development
+  username: alexsiniy
+  password: <%= ENV['PG_PASSWORD'] %>
 
 test:
   <<: *default
   database: test_guru2_test
+  username: alexsiniy
+  password: <%= ENV['PG_PASSWORD'] %>
+
 
 production:
   <<: *default
   database: test_guru2_production
+  username: alexsiniy
+  password: <%= ENV['PG_PASSWORD'] %>
