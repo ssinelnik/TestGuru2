@@ -10,6 +10,7 @@ services:
     runtime: ruby
     plan: free
     buildCommand: "./bin/render-build.sh"
+    preDeployCommand: 
     startCommand: "bundle exac rails server"
     envVars:
       - key: DATABASE_URL
