@@ -8,17 +8,17 @@ development:
   <<: *default
   database: test_guru2_development
   username: alexsiniy
-  password: <%= ENV['PG_PASSWORD'] %>
+  password: <%= ENV['1234'] %>
 
 test:
   <<: *default
   database: test_guru2_test
   username: alexsiniy
-  password: <%= ENV['PG_PASSWORD'] %>
+  password: <%= ENV['1234] %>
 
 
 production:
   <<: *default
   database: test_guru2_production
   username: alexsiniy
-  password: <%= ENV['PG_PASSWORD'] %>
+  password: <%= ENV['1234'] %>
