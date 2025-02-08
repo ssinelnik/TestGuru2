@@ -55,8 +55,6 @@ en:
         level: "Level"
         count: "Count"
         actions: "Actions"
-      form-inline:
-        submit: "OK"
       create:
         success: "The test was successfully created"
       update:
@@ -72,6 +70,9 @@ en:
         actions: "Actions"
       edit:
         edit: "Edit test: %{title} "
+      form_inline:
+        submit: "OK"
+
     questions:
       new:
         header: "Create New Question"
@@ -90,13 +91,12 @@ en:
         correct: "Correct: "
       edit:
         edit: "Edit Answer"
-
-  gists:
-    index:
-      header: "Gists"
-      question: "Question"
-      gist_url: "Hash Gist"
-      user: "User email"
+    gists:
+      index:
+        header: "Gists"
+        question: "Question"
+        gist_url: "Hash Gist"
+        user: "User email"
 
   test_passages:
     result:
@@ -107,6 +107,8 @@ en:
       header: "Passing the %{title} test"
       total_questions: "All questions: %{count}"
       current_question: "Current question has a number %{number}"
+      in_development: "New test coming soon"
+      try_other: "Try other tests"
 
   gists:
     create:
@@ -129,3 +131,13 @@ en:
         header: "Enter the Guru Gates"
         password: "Password"
         remember_me: "Remember me"
+
+
+  feedbacks:
+    create:
+      success: "Your review has been sent, we will contact you shortly."
+    form:
+      user_name: "User name"
+      email: "Email"
+      header: "Header"
+      content: "Content"

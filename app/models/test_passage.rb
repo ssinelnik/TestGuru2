@@ -17,6 +17,10 @@ class TestPassage < ApplicationRecord
     test.questions.index(current_question) + 1
   end
 
+  def total_questions
+    test.questions.count
+  end
+
   def successful?
     result >= SUCCESSFUL_PASS
   end
@@ -43,6 +47,7 @@ class TestPassage < ApplicationRecord
   end
 
   def correct?(answer_ids)
+    return if self.current_question.answers.empty?
     right_answers.ids.sort == answer_ids.to_a.map(&:to_i).sort
   end
 
