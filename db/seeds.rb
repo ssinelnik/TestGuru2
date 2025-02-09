@@ -10,13 +10,18 @@
 
 return if User.exists? && Test.exists? && Category.exists?
 
+# users = User.create!([
+#   { first_name: "Alexander", email: "alexander1999@mail.com", password: "123456" },
+#   { first_name: "Anna", email: "anna2003@mail.com", password: "123456" },
+#   { first_name: "Georgy", email: "georgy2001@mail.com", password: "123456" },
+#   { first_name: "Artem", email: "artem2005@mail.com", password: "123456" },
+#   { first_name: "Ekaterina", email: "ekaterina2000@mail.com", password: "123456" }
+#   ])
+
 users = User.create!([
-  { first_name: "Alexander", email: "alexander1999@mail.com", password: "123456" },
-  { first_name: "Anna", email: "anna2003@mail.com", password: "123456" },
-  { first_name: "Georgy", email: "georgy2001@mail.com", password: "123456" },
-  { first_name: "Artem", email: "artem2005@mail.com", password: "123456" },
-  { first_name: "Ekaterina", email: "ekaterina2000@mail.com", password: "123456" }
-  ])
+                      { first_name: 'Steve', last_name: 'Jobs',
+                        email: 'abcnicenme@gmail.com', password: '123456', type: 'Admin' }
+                    ])
 
 categories = Category.create!([
   { title: "Frontend" },
