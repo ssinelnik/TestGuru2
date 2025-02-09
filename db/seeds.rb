@@ -11,8 +11,8 @@
 return if User.exists? && Test.exists? && Category.exists?
 
 users = User.create!([
-  { first_name: "Alexander", last_name: "Sinelnik", email: "ssinelnik@bk.ru", password: "123456", type: "Admin" },
-  { first_name: "Steve", last_name: "Jobs", email: "abcnicenme@gmail.com", password: "123456", type: "Admin" }
+  { first_name: "Alexander", last_name: "Sinelnik", email: "samoylovanandreial@gmail.com", password: "123456", type: "Admin" },
+  { first_name: "Steve", last_name: "Jobs", email: "samoylovAndre99@mail.ru", password: "123456", type: "Admin" }
   ])
 
 categories = Category.create!([
