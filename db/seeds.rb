@@ -25,17 +25,17 @@ users = User.create!([
                     ])
 
 categories = Category.create!([
-  { title: "Frontend" },
-  { title: "Backend" },
-  { title: "Data Science" },
-  { title: "Machine learning" },
-  { title: "Mobile development" },
-  { title: "Math searching" }
+  # { title: "Frontend" },
+  { title: "Backend" }
+  # { title: "Data Science" },
+  # { title: "Machine learning" },
+  # { title: "Mobile development" },
+  # { title: "Math searching" }
 ])
 
 tests =  Test.create!([
   { title: "Ruby", level: 1, category: categories[1], author: users[0] },
-  { title: "Rails", level: 2, category: categories[1], author: users[0]},
+  { title: "Rails", level: 2, category: categories[1], author: users[0]}
   # { title: "HTML", level: 1, category: categories[0], author: users[0] },
   # { title: "CSS", level: 1, category: categories[0], author: users[0] },
   # { title: "JavaScript", level: 2, category: categories[0], author: users[0] },
@@ -50,7 +50,7 @@ tests =  Test.create!([
 
 questions = Question.create!([
   { body: "What is the name of a specialized data type in the Ruby language?", test: tests[0] },
-  { body: "What does ORM stand for?", test: tests[1] },
+  { body: "What does ORM stand for?", test: tests[1] }
   # { body: "What encoding should use on the site?", test: tests[2] },
   # { body: "What does CSS stand for?", test: tests[3] },
   # { body: "Where is the correct place to insert a JavaScript?", test: tests[4] },
@@ -65,7 +65,7 @@ questions = Question.create!([
 
 answers = Answer.create!([
   { body: "Symbols", question: questions[0] },
-  { body: "Object Relational Mapper", question: questions[1] },
+  { body: "Object Relational Mapper", question: questions[1] }
   # { body: "UTF-8", question: questions[2] },
   # { body: "Cascading Style Sheets", question: questions[3] },
   # { body: "Body", question: questions[4] },
