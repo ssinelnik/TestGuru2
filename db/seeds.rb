@@ -36,16 +36,16 @@ categories = Category.create!([
 tests =  Test.create!([
   { title: "Ruby", level: 1, category: categories[1], author: users[0] },
   { title: "Rails", level: 2, category: categories[1], author: users[0]},
-  { title: "HTML", level: 1, category: categories[0], author: users[1] },
-  { title: "CSS", level: 1, category: categories[0], author: users[1] },
-  { title: "JavaScript", level: 2, category: categories[0], author: users[1] },
-  { title: "R", level: 2, category: categories[2], author: users[3] },
-  { title: "C/C++", level: 3, category: categories[2], author: users[2] },
-  { title: "Python", level: 2, category: categories[3], author: users[2] },
-  { title: "Java", level: 2, category: categories[4], author: users[4] },
-  { title: "Kotlin", level: 1, category: categories[4], author: users[4] },
-  { title: "Fortran", level: 3, category: categories[5], author: users[3] },
-  { title: "Matlab", level: 3, category: categories[5], author: users[3] }
+  { title: "HTML", level: 1, category: categories[0], author: users[0] },
+  { title: "CSS", level: 1, category: categories[0], author: users[0] },
+  { title: "JavaScript", level: 2, category: categories[0], author: users[0] },
+  { title: "R", level: 2, category: categories[2], author: users[0] },
+  { title: "C/C++", level: 3, category: categories[2], author: users[0] },
+  { title: "Python", level: 2, category: categories[3], author: users[0] },
+  { title: "Java", level: 2, category: categories[4], author: users[0] },
+  { title: "Kotlin", level: 1, category: categories[4], author: users[0] },
+  { title: "Fortran", level: 3, category: categories[5], author: users[0] },
+  { title: "Matlab", level: 3, category: categories[5], author: users[0] }
 ])
 
 questions = Question.create!([
