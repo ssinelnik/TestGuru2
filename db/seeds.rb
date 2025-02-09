@@ -11,8 +11,11 @@
 return if User.exists? && Test.exists? && Category.exists?
 
 users = User.create!([
-  { first_name: "Alexander", last_name: "Sinelnik", email: "samoylovanandreial@gmail.com", password: "123456", type: "Admin" },
-  { first_name: "Steve", last_name: "Jobs", email: "samoylovAndre99@mail.ru", password: "123456", type: "Admin" }
+  { first_name: "Alexander", email: "alexander1999@mail.com" },
+  { first_name: "Anna", email: "anna2003@mail.com" },
+  { first_name: "Georgy", email: "georgy2001@mail.com" },
+  { first_name: "Artem", email: "artem2005@mail.com" },
+  { first_name: "Ekaterina", email: "ekaterina2000@mail.com" }
   ])
 
 categories = Category.create!([
@@ -67,19 +70,4 @@ answers = Answer.create!([
   { body: "Fun", question: questions[9] },
   { body: "Yes", question: questions[10] },
   { body: "Who", question: questions[11] }
-])
-
-tests_user = TestsUser.create!([
-  { test: tests[0], user: users[0] },
-  { test: tests[1], user: users[0] },
-  { test: tests[2], user: users[1] },
-  { test: tests[3], user: users[1] },
-  { test: tests[4], user: users[1] },
-  { test: tests[5], user: users[0] },
-  { test: tests[6], user: users[0] },
-  { test: tests[7], user: users[0] },
-  { test: tests[8], user: users[1] },
-  { test: tests[9], user: users[1] },
-  { test: tests[10], user: users[1] },
-  { test: tests[11], user: users[1] }
 ])
