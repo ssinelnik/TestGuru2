@@ -2,12 +2,12 @@ default: &default
   adapter: postgresql
   encoding: unicode
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  username: alexsiniy
+  username: alexander
   password: <%= ENV['1234'] %>
 
 development:
   <<: *default
-  database: test_guru2_development
+  database: test_guru2_development_pdn
 
 test:
   <<: *default

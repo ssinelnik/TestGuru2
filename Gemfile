@@ -3,42 +3,43 @@ source "https://rubygems.org"
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 # ruby "3.0.0"
-ruby "3.3.3"
+ruby "3.2.2"
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
-# gem "rails", "~> 7.1.3", ">= 7.1.3.4"
-gem 'rails', '~> 8.0', '>= 8.0.1'
+# gem "rails", "~> 7.1.4", ">= 7.1.3.4"
+# gem 'rails', '~> 8.0', '>= 8.0.1'
+gem 'rails', '~> 7.1', '>= 7.1.4'
 
-gem 'bundler', '~> 2.5', '>= 2.5.18'
+gem 'bundler', '~> 2.6', '>= 2.6.5'
 
 gem 'autoprefixer-rails', '~> 10.4', '>= 10.4.19.0'
 
 gem 'npm-rails', '~> 0.2.1'
 
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
-# gem "sprockets-rails"
+gem "sprockets-rails"
 
 # Use postgresql as the database for Active Record
 # gem "pg", "~> 1.1"
 gem 'pg', '~> 1.5', '>= 1.5.9'
 
 # Use the Puma web server [https://github.com/puma/puma]
-# gem "puma", ">= 5.0"
-gem 'puma', '~> 6.6'
+gem "puma", ">= 5.0"
+# gem 'puma', '~> 6.6'
 
 # Use SCSS for stylesheets
 # gem 'sass-rails'
 gem 'sass-rails', '~> 6.0'
 
 # Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker
-# gem 'webpacker', '~> 5.0'
+gem 'webpacker', '~> 5.0'
 
-# gem 'font-awesome-sass'
-gem 'font-awesome-sass', '~> 6.7', '>= 6.7.2'
+gem 'font-awesome-sass'
+# gem 'font-awesome-sass', '~> 6.7', '>= 6.7.2'
 
 # Use Uglifier as compressor for JavaScript assets
-# gem 'uglifier', '>= 1.3.0'
-gem 'uglifier', '~> 4.2', '>= 4.2.1'
+gem 'uglifier', '>= 1.3.0'
+# gem 'uglifier', '~> 4.2', '>= 4.2.1'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'mini_racer', platforms: :ruby
 # gem 'mini_racer', '~> 0.16.0', platforms: :ruby
@@ -56,37 +57,44 @@ gem "turbo-rails"
 gem "stimulus-rails"
 
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
-# gem 'turbolinks', '~> 5'
-gem 'turbolinks', '~> 5.2', '>= 5.2.1'
+gem 'turbolinks', '~> 5'
+# gem 'turbolinks', '~> 5.2', '>= 5.2.1'
 
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
-# gem "jbuilder"
-gem 'jbuilder', '~> 2.13'
+gem "jbuilder"
+# gem 'jbuilder', '~> 2.13'
+
 
 # AUTHENTICATION
 # gem 'devise', '~> 4.0'
-gem 'devise', '~> 4.9', '>= 4.9.4'
+# gem 'devise', '~> 4.9', '>= 4.9.4'
+# gem 'devise', '~>4.8'
+# gem 'devise', '~> 4.0'
+gem "devise", "~> 4.9"
 
 # LOCALIZATION
-# gem 'rails-i18n', '~> 7.0.0'
-gem 'rails-i18n', '~> 8.0', '>= 8.0.1'
+gem 'rails-i18n', '~> 7.0.0'
+# gem 'rails-i18n', '~> 8.0', '>= 8.0.1'
+
+# INITIALIZATION
+gem 'i18n', '~> 1.14', '>= 1.14.7'
 
 # UI
-# gem 'jquery-rails'
-# gem 'bootstrap', '~> 5.3.3'
-# gem 'octicons_helper'
-gem 'jquery-rails', '~> 4.6'
-gem 'bootstrap', '~> 5.3', '>= 5.3.3'
-gem 'octicons_helper', '~> 19.14'
+gem 'jquery-rails'
+gem 'bootstrap', '~> 5.3.3'
+gem 'octicons_helper'
+# gem 'jquery-rails', '~> 4.6'
+# gem 'bootstrap', '~> 5.3', '>= 5.3.3'
+# gem 'octicons_helper', '~> 19.14'
 
 # API gists
 gem 'octokit', '~> 9.2'
 
 # Use Redis adapter to run Action Cable in production
-# gem "redis", ">= 4.0.1"
+gem "redis", ">= 4.0.1"
 
 # Use Kredis to get higher-level data types in Redis [https://github.com/rails/kredis]
-# gem "kredis"
+gem "kredis"
 
 # Use Active Model has_secure_password [https://guides.rubyonrails.org/active_model_basics.html#securepassword]
 gem "bcrypt", "~> 3.1.7"
@@ -95,8 +103,8 @@ gem "bcrypt", "~> 3.1.7"
 gem "tzinfo-data", platforms: %i[ mswin mswin64 mingw x64_mingw jruby ]
 
 # Reduces boot times through caching; required in config/boot.rb
-# gem "bootsnap", require: false
-gem 'bootsnap', '>= 1.18.4', require: false
+gem "bootsnap", require: false
+# gem 'bootsnap', '>= 1.18.4', require: false
 gem 'dotenv-rails', '~> 3.1', '>= 3.1.7'
 
 gem 'dotenv', groups: [:development, :test]
