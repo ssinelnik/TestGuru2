@@ -1,4 +1,4 @@
-class CreateFeedbacks < ActiveRecord::Migration[6.1]
+class CreateFeedbacks < ActiveRecord::Migration[7.1]
   def change
     create_table :feedbacks do |t|
       t.string :user_name, null: false

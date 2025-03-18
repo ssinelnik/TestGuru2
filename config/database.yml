@@ -7,7 +7,7 @@ default: &default
 
 development:
   <<: *default
-  database: test_guru2_development_pdn
+  database: fixjs_db
 
 test:
   <<: *default
