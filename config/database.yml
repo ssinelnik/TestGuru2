@@ -7,7 +7,7 @@ default: &default
 
 development:
   <<: *default
-  database: fixjs_db
+  database: new_db
 
 test:
   <<: *default
