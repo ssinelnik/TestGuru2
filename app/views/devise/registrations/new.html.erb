@@ -1,6 +1,6 @@
 <div class="row justify-content-center mt-3">
   <div class="col col-md-4">
-    <h2> <%= t('.header') %> </h2>
+    <h2><%= t('.header') %></h2>
 
     <div class="card border-primary">
       <div class="card-body">
@@ -9,17 +9,17 @@
 
         <div class="form-group">
           <p>
-            <%= f.label :first_name %><br />
+            <%= f.label :first_name %><br/>
             <%= f.text_field :first_name, autofocus: true, autocomplete: "first name", class: "form-control" %>
           </p>
 
           <p>
-            <%= f.label :last_name %><br />
+            <%= f.label :last_name %><br/>
             <%= f.text_field :last_name, autofocus: true, autocomplete: "last name", class: "form-control" %>
           </p>
 
           <p>
-            <%= f.label :email %><br />
+            <%= f.label :email %><br/>
             <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
           </p>
 
@@ -32,7 +32,7 @@
           </p>
 
           <p>
-            <%= f.label :password_confirmation, t('.password_confirmation') %><br />
+            <%= f.label :password_confirmation, t('.password_confirmation') %><br/>
             <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "password_check" %>
           </p>
         </div>
