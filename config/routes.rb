@@ -6,22 +6,6 @@ Rails.application.routes.draw do
   devise_for :users, path: :gurus, path_names: { sign_in: :login, sign_out: :logout },
                      controllers: { sessions: 'sessions' }
 
-  # destroy_user_session DELETE /users/sign_out(.:format) devise/sessions#destroy
-
-  # Паша
-  # devise_for :users, path: :gurus, controllers: { sessions: 'sessions' }
-
-  # devise_scope :user do
-  #  get "signup", to: "devise/registrations#new"
-  #  get "login", to: "devise/sessions#new"
-  #  get "logout", to: "devise/sessions#destroy"
-  # end
-
-  # delete '/gurus/logout', to: 'sessions#destroy', as: :destroy_user_session
-  # get '/gurus/logout', to: 'sessions#destroy', as: :guru_logout
-
-  # get "logout", to: "devise/sessions#destroy"
-
   resources :tests, only: :index do
     post :start, on: :member
   end

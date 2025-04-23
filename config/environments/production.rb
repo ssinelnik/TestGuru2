@@ -27,7 +27,7 @@ Rails.application.configure do
   config.public_file_server.enabled = ENV['RAILS_SERVE_STATIC_FILES'].present?
 
   # Compress CSS using a preprocessor.
-  # config.assets.css_compressor = :sass
+  config.assets.css_compressor = :sass
 
   # Do not fallback to assets pipeline if a precompiled asset is missed.
   config.assets.compile = false
@@ -52,10 +52,10 @@ Rails.application.configure do
 
   # Include generic and useful information about system operation, but avoid logging too much
   # information to avoid inadvertent exposure of personally identifiable information (PII).
-  config.log_level = :info
+  config.log_level = :debug
 
   # Prepend all log lines with the following tags.
-  config.log_tags = [:request_id]
+  config.log_tags = [ :request_id ]
 
   # Use a different cache store in production.
   # config.cache_store = :mem_cache_store
@@ -66,10 +66,10 @@ Rails.application.configure do
 
   config.action_mailer.perform_deliveries = false
   config.action_mailer.perform_caching = false
-  config.action_mailer.default_url_options = { host: 'become-a-test-guru.herokuapp.com' }
+  config.action_mailer.default_url_options = { host: 'testguru2.onrender.com' }
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-    address: 'smtp.gmail.com',
+    address: ENV['SMTP_SERVER'],
     port: 587,
     user_name: ENV['SMTP_USERNAME'],
     password: ENV['SMTP_PASSWORD'],
