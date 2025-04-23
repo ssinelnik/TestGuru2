@@ -145,7 +145,7 @@ group :development do
 
   # For devise confirmable email
   # gem 'letter_opener'
-  gem 'letter_opener', '~> 1.10'
+  # gem 'letter_opener', '~> 1.10'
 
   # gem 'rubocop', '~> 1.71'
   gem 'rubocop', '~> 1.71', '>= 1.71.2'
