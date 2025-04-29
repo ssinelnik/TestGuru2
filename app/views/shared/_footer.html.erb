@@ -1,14 +1,16 @@
 <br>
 <hr>
 <footer class="footer">
-  <small> <%= link_to "Test Guru - Учебный проект в онлайн-школе Thinknetica",
-                      "https://thinknetica.com/"%>
+  <small> <%= link_to "Test Guru - Учебный проект в онлайн-школе Thinknetica", "https://thinknetica.com/"%>
 
     <p>
-     <%= t('.author') %> <%= github_url("ssinelnik", "TestGuru2" ) %>
-
-      <%= t('.year') %> <%= current_year %>
+     <%= t('.author') %><%= github_url("ssinelnik", "TestGuru2" ) %>
+     <%= t('.year') %><%= current_year %>
     </p>
-    
+
+    <p>
+      <%= link_to t('shared.links.feedback'), new_feedback_path %>
+    </p>
+
   </small>
 </footer>

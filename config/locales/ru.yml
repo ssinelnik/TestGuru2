@@ -47,6 +47,7 @@ ru:
       level: "Уровень"
       count: "Количество вопросов"
       action: "Действие"
+      actions: "Действия"
 
   admin:
     nav:

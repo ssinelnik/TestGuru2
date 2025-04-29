@@ -9,20 +9,20 @@
       <div class="form-group">
         <%= form.label :user_name, t('.user_name') %>
         <% if current_user %>
-         <p> <%= form.text_field :user_name, class: 'form-control', value: current_user.first_name %> </p>
+         <p><%= form.text_field :user_name, class: 'form-control', value: current_user.first_name %></p>
         <% else %>
           <%= form.text_field :user_name, class: 'form-control' %>
         <% end %>
           <%= form.label :email, t('.email') %>
         <% if current_user %>
-         <p> <%= form.email_field :email, class: 'form-control', value: current_user.email %> </p>
+         <p><%= form.email_field :email, class: 'form-control', value: current_user.email %></p>
         <% else %>
           <%= form.email_field :email, class: 'form-control' %>
         <% end %>
 
         <p>
-        <%= form.label :header, t('.header') %>
-        <%= form.text_field :header, class: 'form-control' %>
+          <%= form.label :header, t('.header') %>
+          <%= form.text_field :header, class: 'form-control' %>
         </p>
 
         <%= form.label :content, t('.content') %>

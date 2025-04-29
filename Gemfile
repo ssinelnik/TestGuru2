@@ -64,6 +64,8 @@ gem 'turbolinks', '~> 5'
 gem "jbuilder"
 # gem 'jbuilder', '~> 2.13'
 
+# i18n-tasks helps you find and manage missing and unused translations
+gem 'i18n-tasks', '~> 1.0', '>= 1.0.15'
 
 # AUTHENTICATION
 # gem 'devise', '~> 4.0'
@@ -86,6 +88,9 @@ gem 'octicons_helper'
 # gem 'jquery-rails', '~> 4.6'
 # gem 'bootstrap', '~> 5.3', '>= 5.3.3'
 # gem 'octicons_helper', '~> 19.14'
+
+# HTTP/REST API client library.
+gem 'faraday', '~> 2.13', '>= 2.13.1'
 
 # API gists
 gem 'octokit', '~> 9.2'
