@@ -17,7 +17,7 @@ class GistQuestionService
   private
 
   def default_client
-    Octokit::Client.new(access_token: ACCESS_TOKEN_GIT_HUB)
+    Octokit::Client.new(access_token: ENV['GITHUB_TOKEN'])
   end
 
   def gist_params

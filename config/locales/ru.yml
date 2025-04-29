@@ -1,4 +1,4 @@
-dru:
+ru:
   hello: "Привет, мир"
 
   helpers:
@@ -39,6 +39,7 @@ dru:
     nav:
       header: "Меню пользователя - TestGuru "
 
+
   tests:
     index:
       header: "Доступные тесты"
@@ -46,6 +47,7 @@ dru:
       level: "Уровень"
       count: "Количество вопросов"
       action: "Действие"
+      actions: "Действия"
 
   admin:
     nav:
@@ -57,8 +59,6 @@ dru:
         level: "Уровень"
         count: "Количество вопросов"
         actions: "Действия"
-      form-inline:
-        submit: "ОК"
       create:
         success: "Тест успешно создан"
       update:
@@ -74,6 +74,9 @@ dru:
         actions: "Действия"
       edit:
         edit: "Редактировать тест: %{title}"
+      form_inline:
+        submit: "OK"
+
     questions:
       new:
         header: "Создать новый вопрос"
@@ -92,13 +95,13 @@ dru:
         correct: "Правильный ответ: "
       edit:
         edit: "Редактировать ответ"
+    gists:
+      index:
+        header: "Список созданных Gists"
+        question: "Вопрос"
+        gist_url: "Hash Gist"
+        user: "email пользователя"
 
-  gists:
-    index:
-      header: "Список созданных Gists"
-      question: "Вопрос"
-      gist_url: "Hash Gist"
-      user: "email пользователя"
 
   test_passages:
     result:
@@ -109,6 +112,8 @@ dru:
       header: "Прохождение теста %{title}"
       total_questions: "Всего вопросов: %{count}"
       current_question: "Номер текущего вопроса: %{number}"
+      in_development: "Скоро тут появится новый тест"
+      try_other: "Попробуйте пройти другой тест"
 
   gists:
     create:
@@ -132,3 +137,12 @@ dru:
         email: "Почта"
         password: "Пароль"
         remember_me: "Запомнить меня"
+
+  feedbacks:
+    create:
+      success: "Ваш отзыв отправлен, скором мы свяжемся с Вами."
+    form:
+      user_name: "Имя"
+      email: "Email"
+      header: "Тема"
+      content: "Обращение"
