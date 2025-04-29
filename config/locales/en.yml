@@ -1,5 +1,6 @@
 en:
   hello: "Hello world"
+  custom_message: "Already in use!"
 
   helpers:
     prompt:
