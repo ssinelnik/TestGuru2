@@ -14,7 +14,7 @@ class SendBadgeService
   def call
     Badge.select do |badge|
       rule = RULE[badge.rule.to_sym].new(test_passage: @test_passage, value: badge.parameter)
-      add_awards(badge) if rule.is_satiesfies?
+      add_awards(badge) if rule.satisfied?
     end
   end
 
