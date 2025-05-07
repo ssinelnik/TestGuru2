@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class Badge < ApplicationRecord
+  DATE_FOTMAT = '%d-%m-%y %H:%M:%S'
+
   attribute :rules, :integer
 
   enum rules: {
@@ -15,6 +17,6 @@ class Badge < ApplicationRecord
   validates :title, :image_url, :rule, :parameter, presence: true
 
   def formatted_created_at
-    created_at.strftime('%d-%m-%y %H:%M:%S')
+    created_at.strftime(DATE_FOTMAT)
   end
 end
