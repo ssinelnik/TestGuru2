@@ -6,6 +6,8 @@
     <th class="align-middle"><%= t('.img_url') %></th>
   </tr>
 
+  <%= render 'badges/all_badges' %>
+
   <% Badge.all.each do |badge| %>
     <tr>
       <td class="align-middle"><%= badge.title %></td>
