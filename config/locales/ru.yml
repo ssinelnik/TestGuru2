@@ -46,8 +46,10 @@ ru:
       title: "Заголовок"
       level: "Уровень"
       count: "Количество вопросов"
-      action: "Действие"
+      passing_time: "Время прохождения"
+      actions: "Действие"
       actions: "Действия"
+
   badges:
     index:
       header: "Ваши Достижения"
@@ -68,6 +70,7 @@ ru:
         title: "Заголовок"
         level: "Уровень"
         count: "Количество вопросов"
+        passing_time: "Время прохождения"
         actions: "Действия"
       create:
         success: "Тест успешно создан"
@@ -78,6 +81,7 @@ ru:
       show:
         title: "Заголовок: "
         level: "Уровень: "
+        passing_time: "Время прохождения мин: "
         questions: "Вопросы: "
         id: "Номер"
         body: "Вопрос"
