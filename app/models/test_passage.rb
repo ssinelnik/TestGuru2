@@ -7,11 +7,17 @@ class TestPassage < ApplicationRecord
 
   belongs_to :test
 
-  belongs_to :current_question, 
-              class_name: 'Question', 
+  belongs_to :current_question,
+              class_name: 'Question',
               optional: true
 
   before_validation :set_first, on: :create
+
+  scope :succesfull, -> { where(success: true) }
+
+  def success_true
+    update(success: true)
+  end
 
   def question_number
     test.questions.index(current_question) + 1
@@ -43,7 +49,7 @@ class TestPassage < ApplicationRecord
   private
 
   def set_first
-    self.current_question = test.questions.first if test.present? 
+    self.current_question = test.questions.first if test.present?
   end
 
   def correct?(answer_ids)

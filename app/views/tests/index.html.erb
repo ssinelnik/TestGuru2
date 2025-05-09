@@ -1,5 +1,7 @@
 <% provide(:title, 'Tests') %>
-<h1 class="display-3"> <%= I18n.t('tests.index.header') %> </h1>
+<h1 class="display-3"> <%= I18n.t('tests.index.header') %></h1>
+
+<p><%= link_to t('shared.links.user_badges'), badges_path, class: "btn btn-primary" %></p>
 
 <table class="table table-hover">
   <tbody>
