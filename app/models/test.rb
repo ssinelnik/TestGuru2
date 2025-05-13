@@ -15,6 +15,7 @@ class Test < ApplicationRecord
                                   message: I18n.t('custom_message') }
 
   validates :level, numericality: { only_integer: true }
+  validates :passing_time, presence: true
 
   scope :easy_level, -> { where(level: 0..1) }
   scope :medium_level, -> { where(level: 2..4) }

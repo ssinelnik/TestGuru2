@@ -5,6 +5,13 @@
   </td>
   <td scope="col" class="text-center"><%= test_level(test) %></td>
   <td scope="col" class="text-center"><%= test.questions.count %></td>
+
+  <% if test.passing_time? %>
+    <td scope="col" class="text-center"><%= test.passing_time.to_s + " minutes" %></td>
+  <% else %>
+    <td scope="col"  class="text-center">-</td>
+  <% end %>
+
   <td scope="col" class="text-center"><%= link_to t('shared.links.show'), admin_test_path(test) %></td>
   <td scope="col" class="text-center"><%= link_to t('shared.links.edit'), edit_admin_test_path(test), data: { test_id: test.id }, class: 'form-inline-link' %></td>
   <td scope="col" class="text-center"><%= link_to t('shared.links.delete'), admin_test_path(test), turbo_method: :delete, data: { confirm: t('shared.delete_confirmation') } %></td>

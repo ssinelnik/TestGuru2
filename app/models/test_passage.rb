@@ -8,8 +8,8 @@ class TestPassage < ApplicationRecord
   belongs_to :test
 
   belongs_to :current_question,
-              class_name: 'Question',
-              optional: true
+             class_name: 'Question',
+             optional: true
 
   before_validation :set_first, on: :create
 
@@ -36,7 +36,13 @@ class TestPassage < ApplicationRecord
   end
 
   def done?
-    current_question.nil?
+    current_question.nil? || time_is_out?
+  end
+
+  def time_is_out?
+    return false if test.passing_time.nil?
+
+    (created_at + (test.passing_time * 60) - Time.current) <= 0
   end
 
   def accept!(answer_ids)
@@ -53,7 +59,8 @@ class TestPassage < ApplicationRecord
   end
 
   def correct?(answer_ids)
-    return if self.current_question.answers.empty?
+    return false if current_question.answers.empty?
+
     right_answers.ids.sort == answer_ids.to_a.map(&:to_i).sort
   end
 

@@ -37,7 +37,7 @@ class Admin::TestsController < Admin::BaseController
     end
   end
 
-  def update_inline 
+  def update_inline
     if @test.update(test_params)
       redirect_to admin_tests_path
     else
@@ -57,7 +57,7 @@ class Admin::TestsController < Admin::BaseController
   end
 
   def test_params
-    params.require(:test).permit(:title, :level, :category_id)
+    params.require(:test).permit(:title, :level, :category_id, :passing_time)
   end
 
   def set_test
