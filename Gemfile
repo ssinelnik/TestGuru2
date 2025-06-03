@@ -10,6 +10,12 @@ ruby "3.2.0"
 # gem 'rails', '~> 8.0', '>= 8.0.1'
 gem 'rails', '~> 7.1', '>= 7.1.4'
 
+# XMLRPC is a lightweight protocol that enables remote procedure calls over HTTP
+gem 'xmlrpc', '~> 0.3.3'
+
+# Middleware that converts files uploaded with mimetype application/octet-stream into normal form input
+gem 'rack-raw-upload', '~> 1.1', '>= 1.1.1'
+
 gem 'bundler', '~> 2.6', '>= 2.6.5'
 
 gem 'autoprefixer-rails', '~> 10.4', '>= 10.4.19.0'
