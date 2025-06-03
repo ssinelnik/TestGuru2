@@ -19,6 +19,9 @@ gem 'rack-raw-upload', '~> 1.1', '>= 1.1.1'
 # Builder provides a number of builder objects that make creating structured data simple to do
 gem 'builder', '~> 3.2'
 
+# An XML toolkit for Ruby
+gem 'rexml', '~> 3.4', '>= 3.4.1'
+
 gem 'bundler', '~> 2.6', '>= 2.6.5'
 
 gem 'autoprefixer-rails', '~> 10.4', '>= 10.4.19.0'

@@ -457,6 +457,7 @@ DEPENDENCIES
   rails (~> 7.1, >= 7.1.4)
   rails-i18n (~> 7.0.0)
   redis (>= 4.0.1)
+  rexml (~> 3.4, >= 3.4.1)
   rubocop (~> 1.71, >= 1.71.2)
   rubocop-performance (~> 1.23, >= 1.23.1)
   rubocop-rails (~> 2.29, >= 2.29.1)
