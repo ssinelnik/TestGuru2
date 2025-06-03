@@ -19,5 +19,6 @@ module TestGuru2
     config.i18n.default_locale = :ru
     I18n.available_locales = [:en, :ru]
     config.autoload_paths << "#{Rails.root}/lib/clients"
+    config.middleware.use Rack::RawUpload
   end
 end
