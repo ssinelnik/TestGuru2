@@ -22,10 +22,14 @@ class XmlRpcController < ApplicationController
   private
 
   def parse_xml_rpc_request
-    require 'xmlrpc/parser'
-    parser = XMLRPC::XMLParser.new
-    @request = parser.parse(request.raw_post)
-  rescue => e
+    require 'xmlrpc/server'
+
+    # Используем внутренний метод сервера для парсинга
+    server = XMLRPC::Server.new
+    @request = server.send(:parse_methodCall, request.raw_post)
+
+  rescue StandardError => e
+    Rails.logger.error "XML-RPC Parsing Error: #{e.message}\n#{e.backtrace.join("\n")}"
     render_xml_rpc_fault(400, "Invalid XML-RPC request: #{e.message}")
   end
 
@@ -33,7 +37,9 @@ class XmlRpcController < ApplicationController
     builder = Builder::XmlMarkup.new(indent: 2)
     xml = builder.methodResponse do |resp|
       resp.params do |p|
-        p.param { |par| par.value { XMLRPC::Marshal.dump_value(par, result) } }
+        p.param do |par|
+          par.value { XMLRPC::Marshal.dump_value(result) }
+        end
       end
     end
     render xml: xml
