@@ -1,7 +1,15 @@
+require 'xmlrpc/parser'
+require 'xmlrpc/marshal'
+require 'rexml/document'
+
 class XmlRpcController < ApplicationController
+  # Отключаем проверку CSRF-токена, так как XML-RPC клиенты не используют его
   skip_before_action :verify_authenticity_token
+
+  # Перед выполнением экшена парсим XML-RPC запрос
   before_action :parse_xml_rpc_request
 
+  # Основная точка входа для XML-RPC запросов
   def endpoint
     method = @request[:method_name]
     params = @request[:params]
@@ -22,29 +30,22 @@ class XmlRpcController < ApplicationController
   private
 
   def parse_xml_rpc_request
-    require 'xmlrpc/server'
-
-    # Используем внутренний метод сервера для парсинга
-    server = XMLRPC::Server.new
-    @request = server.send(:parse_methodCall, request.raw_post)
-
-  rescue StandardError => e
-    Rails.logger.error "XML-RPC Parsing Error: #{e.message}\n#{e.backtrace.join("\n")}"
-    render_xml_rpc_fault(400, "Invalid XML-RPC request: #{e.message}")
+    xml = request.raw_post
+    parser = XMLRPC::XMLParser::REXMLStreamParser.new
+    @request = {
+      method_name: parser.parseMethodCall(xml).first,
+      params: parser.parseMethodCall(xml).last
+    }
+  rescue => e
+    render_xml_rpc_fault(500, "Parse error: #{e.message}")
   end
 
   def render_xml_rpc(result)
-    builder = Builder::XmlMarkup.new(indent: 2)
-    xml = builder.methodResponse do |resp|
-      resp.params do |p|
-        p.param do |par|
-          par.value { XMLRPC::Marshal.dump_value(result) }
-        end
-      end
-    end
-    render xml: xml
+      response = XMLRPC::Marshal.dump_response(result)
+    render xml: response
   end
 
+  # Формирует и возвращает XML-RPC fault-ответ с кодом и сообщением об ошибке
   def render_xml_rpc_fault(code, message)
     builder = Builder::XmlMarkup.new(indent: 2)
     xml = builder.methodResponse do |resp|
