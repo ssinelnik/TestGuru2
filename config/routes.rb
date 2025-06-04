@@ -1,7 +1,8 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  post '/xmlrpc', to: 'xml_rpc#endpoint'
+  post '/xmlrpc', to: 'xml_rpc#endpoint', as: :xmlrpc
+
   root 'tests#index'
 
   devise_for :users, path: :gurus, path_names: { sign_in: :login, sign_out: :logout },
