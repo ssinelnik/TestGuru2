@@ -1,7 +1,8 @@
 <div class="xml-rpc-container">
   <h1>XML-RPC API Testing Interface</h1>
 
-  <%= form_with url: xmlrpc_path, method: :post, local: false, id: 'xmlrpc-form' do |f| %>
+  <!-- Форма для ручного тестирования -->
+  <%= form_with url: xmlrpc_path, method: :post, id: 'xmlrpc-form' do |f| %>
     <div class="form-group">
       <%= f.label :method_name, "Method Name" %>
       <%= f.select :method_name,
@@ -9,95 +10,57 @@
           {}, class: 'form-control', id: 'method-selector' %>
     </div>
 
+    <!-- Поля параметров -->
     <div id="params-container">
-      <!-- Динамические поля параметров -->
       <div class="param-group" data-method="test.add">
-        <%= label_tag :param1, "Parameter 1 (Integer)" %>
         <%= number_field_tag :param1, 0, class: 'form-control' %>
-
-        <%= label_tag :param2, "Parameter 2 (Integer)" %>
         <%= number_field_tag :param2, 0, class: 'form-control' %>
       </div>
 
       <div class="param-group" data-method="user.get" style="display:none;">
-        <%= label_tag :user_id, "User ID" %>
         <%= number_field_tag :user_id, 1, class: 'form-control' %>
       </div>
     </div>
 
-    <%= f.submit "Send XML-RPC Request", class: 'btn btn-primary mt-3',
-                 data: { disable_with: "Sending..." } %>
+    <%= f.submit "Send Request", class: 'btn btn-primary mt-3' %>
   <% end %>
 
-  <div id="response" class="mt-4">
-    <h3>Response:</h3>
-    <pre class="bg-light p-3 rounded" id="response-content"></pre>
-  </div>
+  <!-- Блок вывода результатов -->
+  <div class="mt-4">
+    <% if @error %>
+      <div class="alert alert-danger">
+        <%= @error %>
+      </div>
+    <% end %>
 
-  <div class="examples mt-5">
-    <h4>Примеры запросов cURL:</h4>
-    <code>
-      test.add: curl -X POST http://localhost:3000/xmlrpc -H "Content-Type: text/xml" -d '&lt;?xml version="1.0"?&gt;&lt;methodCall&gt;&lt;methodName&gt;test.add&lt;/methodName&gt;&lt;params&gt;&lt;param&gt;&lt;value&gt;&lt;int&gt;17&lt;/int&gt;&lt;/value&gt;&lt;/param&gt;&lt;param&gt;&lt;value&gt;&lt;int&gt;25&lt;/int&gt;&lt;/value&gt;&lt;/param&gt;&lt;/params&gt;&lt;/methodCall&gt;'
-    </code>
-    <br><br>
-    <code>
-      user.get: curl -X POST http://localhost:3000/xmlrpc -H "Content-Type: text/xml" -d '&lt;?xml version="1.0"?&gt;&lt;methodCall&gt;&lt;methodName&gt;user.get&lt;/methodName&gt;&lt;params&gt;&lt;param&gt;&lt;value&gt;&lt;int&gt;1&lt;/int&gt;&lt;/value&gt;&lt;/param&gt;&lt;/params&gt;&lt;/methodCall&gt;'
-    </code>
+    <% if @request_data %>
+      <h3>Request:</h3>
+      <pre class="bg-light p-3 rounded"><%= JSON.pretty_generate(@request_data) %></pre>
+    <% end %>
+
+    <% if @response_data %>
+      <h3>Response:</h3>
+      <pre class="bg-light p-3 rounded"><%= JSON.pretty_generate(@response_data) %></pre>
+    <% end %>
   </div>
 </div>
 
 <script>
+// JavaScript для динамического отображения полей
 document.addEventListener('DOMContentLoaded', function() {
   const methodSelector = document.getElementById('method-selector');
-  const paramsContainer = document.getElementById('params-container');
+  document.querySelectorAll('.param-group').forEach(group => {
+    group.style.display = group.dataset.method === methodSelector.value ? 'block' : 'none';
+  });
 
-  function updateParamsVisibility() {
-    const selectedMethod = methodSelector.value;
+  methodSelector.addEventListener('change', function() {
     document.querySelectorAll('.param-group').forEach(group => {
-      group.style.display = group.dataset.method === selectedMethod ? 'block' : 'none';
+      group.style.display = group.dataset.method === this.value ? 'block' : 'none';
     });
-  }
-
-  methodSelector.addEventListener('change', updateParamsVisibility);
-  updateParamsVisibility();
-
-  document.getElementById('xmlrpc-form').addEventListener('submit', async function(e) {
-    e.preventDefault();
-
-    const method = methodSelector.value;
-    const params = Array.from(document.querySelectorAll('.param-group:visible input'))
-                     .map(input => parseInt(input.value));
-
-    const xmlBody = `<?xml version="1.0"?>
-      <methodCall>
-        <methodName>${method}</methodName>
-        <params>
-          ${params.map(p => `<param><value><int>${p}</int></value></param>`).join('')}
-        </params>
-      </methodCall>`;
-
-    try {
-      const response = await fetch(this.action, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'text/xml',
-          'Accept': 'text/xml'
-        },
-        body: xmlBody
-      });
-
-      const responseText = await response.text();
-      document.getElementById('response-content').textContent =
-        new XMLSerializer().serializeToString(
-          new DOMParser().parseFromString(responseText, "text/xml")
-        );
-    } catch (error) {
-      document.getElementById('response-content').textContent =
-        `Error: ${error.message}`;
-    }
   });
 });
 </script>
+
 
 <style>
 .xml-rpc-container {
@@ -115,6 +78,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
 pre {
   white-space: pre-wrap;
-  word-wrap: break-word;
+  background: #f8f9fa;
+  padding: 1rem;
+  border-radius: 4px;
 }
 </style>
