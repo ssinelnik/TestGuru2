@@ -2,7 +2,8 @@
   <h1>XML-RPC API Testing Interface</h1>
 
   <!-- Форма для ручного тестирования -->
-  <%= form_with url: xmlrpc_path, method: :post, id: 'xmlrpc-form' do |f| %>
+  <%= form_with url: xmlrpc_path, method: :post, data: { type: :xml }, html: { 'data-type' => 'xml' } do |f| %>
+
     <div class="form-group">
       <%= f.label :method_name, "Method Name" %>
       <%= f.select :method_name,
