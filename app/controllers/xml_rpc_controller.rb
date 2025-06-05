@@ -29,25 +29,44 @@ class XmlRpcController < ApplicationController
 
   private
 
+  # def parse_xml_rpc_request
+  #   if request.content_type&.include?('application/x-www-form-urlencoded')
+  #     # Обработка данных формы
+  #     @request = {
+  #       method_name: params[:method_name],
+  #       params: extract_params_from_form
+  #     }
+  #   else
+  #     # Обработка XML-RPC
+  #     xml = request.raw_post
+  #     parser = XMLRPC::XMLParser::REXMLStreamParser.new
+  #     @request = {
+  #       method_name: parser.parseMethodCall(xml).first,
+  #       params: parser.parseMethodCall(xml).last
+  #     }
+  #   end
+  # rescue => e
+  #   render_xml_rpc_fault(500, "Parse error: #{e.message}")
+  # end
+
   def parse_xml_rpc_request
-  if request.content_type&.include?('application/x-www-form-urlencoded')
-    # Обработка данных формы
-    @request = {
-      method_name: params[:method_name],
-      params: extract_params_from_form
-    }
-  else
-    # Обработка XML-RPC
-    xml = request.raw_post
-    parser = XMLRPC::XMLParser::REXMLStreamParser.new
-    @request = {
-      method_name: parser.parseMethodCall(xml).first,
-      params: parser.parseMethodCall(xml).last
-    }
+    if request.content_type&.include?('application/x-www-form-urlencoded')
+      @request = {
+        method_name: params[:method_name],
+        params: extract_params_from_form
+      }
+    else
+      xml = request.raw_post
+      parser = XMLRPC::XMLParser::REXMLStreamParser.new
+      method_name, method_params = parser.parseMethodCall(xml)
+      @request = {
+        method_name: method_name,
+        params: method_params
+      }
+    end
+  rescue => e
+    render_xml_rpc_fault(500, "Parse error: #{e.message}")
   end
-rescue => e
-  render_xml_rpc_fault(500, "Parse error: #{e.message}")
-end
 
 
   # Формирует и возвращает XML-RPC fault-ответ с кодом и сообщением об ошибке
@@ -64,5 +83,20 @@ end
       end
     end
     render xml: xml, status: :internal_server_error
+  end
+end
+
+def extract_params_from_form
+  case params[:method_name]
+  when 'test.add'
+    param1 = params[:param1]&.to_i || 0
+    param2 = params[:param2]&.to_i || 0
+    [param1, param2]
+  when 'user.get'
+    user_id = params[:user_id]&.to_i
+    raise ArgumentError, "user_id is required" unless user_id&.positive?
+    [user_id]
+  else
+    []
   end
 end
