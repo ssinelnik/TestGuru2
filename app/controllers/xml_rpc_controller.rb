@@ -29,6 +29,20 @@ class XmlRpcController < ApplicationController
 
   private
 
+  def render_xml_rpc(result)
+    builder = Builder::XmlMarkup.new(indent: 2)
+    xml = builder.methodResponse do |resp|
+      resp.params do |params|
+        params.param do |param|
+         param.value do |v|
+            v.int result.to_s
+          end
+        end
+      end
+    end
+    render xml: xml, status: :ok
+  end
+
   def parse_xml_rpc_request
     if request.content_type&.include?('application/x-www-form-urlencoded')
       @request = {
