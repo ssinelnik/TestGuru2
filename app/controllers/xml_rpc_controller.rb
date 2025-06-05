@@ -29,26 +29,6 @@ class XmlRpcController < ApplicationController
 
   private
 
-  # def parse_xml_rpc_request
-  #   if request.content_type&.include?('application/x-www-form-urlencoded')
-  #     # Обработка данных формы
-  #     @request = {
-  #       method_name: params[:method_name],
-  #       params: extract_params_from_form
-  #     }
-  #   else
-  #     # Обработка XML-RPC
-  #     xml = request.raw_post
-  #     parser = XMLRPC::XMLParser::REXMLStreamParser.new
-  #     @request = {
-  #       method_name: parser.parseMethodCall(xml).first,
-  #       params: parser.parseMethodCall(xml).last
-  #     }
-  #   end
-  # rescue => e
-  #   render_xml_rpc_fault(500, "Parse error: #{e.message}")
-  # end
-
   def parse_xml_rpc_request
     if request.content_type&.include?('application/x-www-form-urlencoded')
       @request = {
@@ -67,7 +47,6 @@ class XmlRpcController < ApplicationController
   rescue => e
     render_xml_rpc_fault(500, "Parse error: #{e.message}")
   end
-
 
   # Формирует и возвращает XML-RPC fault-ответ с кодом и сообщением об ошибке
   def render_xml_rpc_fault(code, message)
